@@ -14,7 +14,7 @@ export default function SignUp(props) {
     }
 
     return (
-        <div className="login">
+        <div className="signup">
             <p>{props.text}</p>
             <form onSubmit={handleSubmit}>
                 <input

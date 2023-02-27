@@ -25,25 +25,31 @@ export default function Login(props) {
     return (
         <div className="login">
             <p>{props.text}</p>
+            <p className="policy">
+            By continuing, you agree are setting up a 
+            Reddit account and agree to our <span className="links">User Agreement</span> and <span className="links">Privacy Policy</span>.
+            </p>
             <form onSubmit={handleSubmit}>
                 <input
+                className="usernameBar"
                 type='text'
                 value={username}
+                placeholder='Username'
                 onChange={(e) => setUsername(e.target.value)}
                 />
                 <br />
                 <input
+                className="passwordBar"
                 type='password'
                 value={password}
+                placeholder='Password'
                 onChange={(e) => setPassword(e.target.value)}
                 />
                 <br />
                 <button className="login-btn" onClick={props.onClose} disabled={!validateForm()}>
                 Login
             </button>
-            <button className="signUp-btn" onClick={deleteHandler}>
-          SignUp
-            </button>
+            <p>New to Reddit? <a href="#" onClick={deleteHandler}>Sign Up</a></p>
             {state && <SignUp text="SignUp" onClick={closeHandler}/>}
             </form>
         </div>
