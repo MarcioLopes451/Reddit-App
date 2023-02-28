@@ -1,13 +1,12 @@
 import React from "react";
-import { NavLink } from 'react-router-dom';
 import { useState } from "react";
 import logo from '../../images/Reddit-Logo.png';
 import '../SearchBar/SearchBar.css';
 import Login from "../../Containers/Login/LogIn/Login";
 import Background from "../../Containers/Login/LogIn/Background";
-
 export const SearchBar = () => {
     const [state, setState] = useState(false);
+    
 
     function deleteHandler(){
         setState(true);
@@ -17,7 +16,7 @@ export const SearchBar = () => {
     }
     return (
         <nav className="nav">
-            <img src={logo} className="Logo"/>
+            <img src={logo} className="Logo" alt="logo"/>
             <input 
             type='text'
             placeholder="Search"

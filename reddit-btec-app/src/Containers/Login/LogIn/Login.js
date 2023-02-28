@@ -4,11 +4,14 @@ import SignUp from "../SignUp/SignUp";
 import { logIn } from "../SignUp/userSlice";
 import { useDispatch } from "react-redux";
 
+
+
 export default function Login(props) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [state, setState] = useState(false);
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
+
    
 
 
@@ -25,7 +28,10 @@ export default function Login(props) {
 
     function handleSubmit(e){
         e.preventDefault();
-        dispatch(logIn({username : username}))
+        dispatch(logIn({username : username, password : password}))
+
+        
+
     }
 
     return (
@@ -55,7 +61,7 @@ export default function Login(props) {
                 <button className="login-btn" onClick={props.onClose} disabled={!validateForm()}>
                 Login
             </button>
-            <p>New to Reddit? <a href="#" onClick={deleteHandler}>Sign Up</a></p>
+            <p>New to Reddit? <a onClick={deleteHandler}>Sign Up</a></p>
             {state && <SignUp text="SignUp" onClick={closeHandler}/>}
             </form>
         </div>
