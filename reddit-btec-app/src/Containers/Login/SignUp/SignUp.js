@@ -1,9 +1,11 @@
 import React from "react";
 import { useState } from "react";
+import { useHistory } from "react-router";
 
 export default function SignUp(props) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const history = useHistory();
 
     function validateForm(){
         return username.length > 0 && password.length > 0;
@@ -11,6 +13,7 @@ export default function SignUp(props) {
 
     function handleSubmit(e){
         e.preventDefault();
+        history.push('/searchBar')
     }
 
     return (

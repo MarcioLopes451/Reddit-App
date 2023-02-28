@@ -3,6 +3,7 @@ import { useState } from "react";
 import SignUp from "../SignUp/SignUp";
 import { logIn } from "../SignUp/userSlice";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router";
 
 
 
@@ -11,9 +12,7 @@ export default function Login(props) {
     const [password, setPassword] = useState('');
     const [state, setState] = useState(false);
     const dispatch = useDispatch();
-
-   
-
+    const history = useHistory();
 
     function deleteHandler(){
         setState(true);
@@ -28,10 +27,8 @@ export default function Login(props) {
 
     function handleSubmit(e){
         e.preventDefault();
-        dispatch(logIn({username : username, password : password}))
-
+        dispatch(logIn({username : username}))
         
-
     }
 
     return (
