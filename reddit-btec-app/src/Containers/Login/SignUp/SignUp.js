@@ -13,11 +13,11 @@ export default function SignUp(props) {
 
     function handleSubmit(e){
         e.preventDefault();
-        history.push('/searchBar')
+        history.push('/home')
     }
 
     return (
-        <div className="signup">
+       <div className="signup">
             <p>{props.text}</p>
             <form onSubmit={handleSubmit}>
                 <input
@@ -36,6 +36,6 @@ export default function SignUp(props) {
                 SignUp
             </button>
             </form>
-        </div>
+    </div>
     )
 }

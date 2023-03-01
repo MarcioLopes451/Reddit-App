@@ -4,23 +4,25 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { store } from './Components/Store';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Home from './Components/Home/Home';
+
 
 
 function App() {
   return (
-   <>
-   <nav>
-    <Provider store={store}>
-      <Router>
-        <Switch>
-          <Route path='/searchBar'>
-          </Route>
-        </Switch>
-      </Router>
+   <Provider store={store}>
+    <Router>
+      <div>
       <SearchBar />
-    </Provider>
-   </nav>
-   </>
+      <Switch>
+        <Route path='/home'>
+          <Home />
+        </Route>
+      </Switch>
+      </div>
+    </Router>
+   </Provider>
+   
   )
 }
 

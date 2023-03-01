@@ -1,66 +1,63 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useRef, useEffect} from "react";
 import SignUp from "../SignUp/SignUp";
-import { logIn } from "../SignUp/userSlice";
-import { useDispatch } from "react-redux";
-import { useHistory } from "react-router";
-
-
 
 export default function Login(props) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [state, setState] = useState(false);
-    const dispatch = useDispatch();
-    const history = useHistory();
+    const [success, setSuccess] = useState(false);
+    const [errMsg, SetErrMsg] = useState('')
+    const userRef = useRef();
+    const errRef = useRef();
+    
+   { /*useEffect(() => {
+        userRef.current.focus();
+    }, [])*/
+}
 
-    function deleteHandler(){
-        setState(true);
-    }
-    function closeHandler(){
-        setState(false)
-    }
+    useEffect(() => {
+        SetErrMsg('');
+    }, [username, password])
 
-    function validateForm(){
-        return username.length > 0 && password.length > 0;
-    }
-
-    function handleSubmit(e){
-        e.preventDefault();
-        dispatch(logIn({username : username}))
-        
-    }
 
     return (
-        <div className="login">
+        <section className="login">
+            <p ref={errRef} 
+            className={errMsg ? 'errmsg' : 'offscreen'} 
+            aria-live='assertive'>
+                {errMsg}
+            </p>
             <p>{props.text}</p>
             <p className="policy">
             By continuing, you agree are setting up a 
             Reddit account and agree to our <span className="links">User Agreement</span> and <span className="links">Privacy Policy</span>.
             </p>
-            <form onSubmit={handleSubmit}>
+            <form>
+                <label htmlFor="username">
+                    Username
+                </label>
                 <input
-                className="usernameBar"
                 type='text'
-                value={username}
-                placeholder='Username'
+                id="username"
+                ref={userRef}
+                autoComplete='off'
                 onChange={(e) => setUsername(e.target.value)}
+                value={username} 
+                required
                 />
                 <br />
+                <label htmlFor="password">
+                    Password
+                </label>
                 <input
-                className="passwordBar"
                 type='password'
-                value={password}
-                placeholder='Password'
+                id="password"
                 onChange={(e) => setPassword(e.target.value)}
+                value={password} 
+                required
                 />
-                <br />
-                <button className="login-btn" onClick={props.onClose} disabled={!validateForm()}>
-                Login
-            </button>
-            <p>New to Reddit? <a onClick={deleteHandler}>Sign Up</a></p>
-            {state && <SignUp text="SignUp" onClick={closeHandler}/>}
+                <button>Login</button>
             </form>
-        </div>
+        </section>
     )
 }
