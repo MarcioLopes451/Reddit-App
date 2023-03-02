@@ -1,7 +1,9 @@
 import React from "react";
-import { SearchBar } from "../SearchBar/SearchBar";
+
 
 
 export default function Home() {
-    return 
+    return (
+        <h1>Hello</h1>
+    )
 }

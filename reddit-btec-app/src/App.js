@@ -1,16 +1,17 @@
 import './App.css';
 import { SearchBar } from './Components/SearchBar/SearchBar';
 import React from 'react';
-import { Provider } from 'react-redux';
-import { store } from './Components/Store';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './Components/Home/Home';
+import Auth0ProviderWithHistory from './auth0Provider';
+
+
 
 
 
 function App() {
   return (
-   <Provider store={store}>
+    <Auth0ProviderWithHistory>
     <Router>
       <div>
       <SearchBar />
@@ -21,8 +22,7 @@ function App() {
       </Switch>
       </div>
     </Router>
-   </Provider>
-   
+    </Auth0ProviderWithHistory>
   )
 }
 
