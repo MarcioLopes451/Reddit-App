@@ -5,7 +5,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 
 export const SearchBar = () => {
-    const {loginWithRedirect, logout, user, isLoading} = useAuth0();
+    const {isLoading, isAuthenticated, error, user, loginWithRedirect, logout } = useAuth0();
 
     return (
         <nav className="nav" href='/home'>
@@ -15,20 +15,28 @@ export const SearchBar = () => {
             placeholder="Search"
             className="searchBar"
             />
-            {!isLoading && !user && (
-            <button
-            className="loginBtn"
-             onClick={() => loginWithRedirect()}>
-                Login
-             </button>
-        )}
-        { user && (
-            <button
-            className=""
-             onClick={() => logout()}>
-                Logout
-            </button>
-        )}
+            { isLoading && (
+                <div>Loading...</div>
+            )}
+            {error && (
+                <div>Oops... {error.message}</div>
+            )}
+            {isAuthenticated && (
+                <button 
+                className="loginBtn" 
+                onClick={() => logout({returnTo : window.location.origin})}>
+                    Log out
+                </button>
+            )}
+            {!isAuthenticated && (
+                <button
+                className="loginBtn"
+                onClick={() => loginWithRedirect()}>
+                    Login
+                </button>
+            )}
+
+
         </nav>
     )
 }
