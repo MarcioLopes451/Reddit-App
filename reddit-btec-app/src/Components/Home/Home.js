@@ -1,9 +1,11 @@
 import React from "react";
-
-
+import { Subreddit } from "../../Containers/SubredditLinks/Subreddit";
 
 export default function Home() {
     return (
-        <h1>Hello</h1>
+        <div>
+            <Subreddit />
+        </div>
+        
     )
 }

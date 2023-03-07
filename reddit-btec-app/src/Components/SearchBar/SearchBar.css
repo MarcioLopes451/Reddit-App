@@ -1,3 +1,5 @@
+/* Search bar */
+
 .nav {
    display: flex;
    justify-content: space-between;
@@ -93,4 +95,31 @@ cursor: pointer;
   margin-top: 1rem;
   border: none;
   background: #E4E4E4;
+}
+
+/* Subreddit */
+
+.subreddit {
+  float: right;
+  width: 15rem;
+  box-shadow: 0px 6px 11px 0px rgba(184, 184, 184, 0.8);
+  margin-top: 2%;
+}
+.subreddit-title {
+  text-align: left;
+  padding-left: 1.5rem;
+}
+.subreddit-list {
+  display: flex;
+  flex-direction: column;
+}
+.subreddit-links {
+  margin: 10px 0;
+  height: 50px;
+  text-decoration: none;
+  padding: 0 1.4rem;
+  color: #000000
+}
+.subreddit-links:hover{
+  background: #F1F1F1;
 }

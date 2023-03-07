@@ -25,7 +25,7 @@ export const SearchBar = () => {
                 <button 
                 className="loginBtn" 
                 onClick={() => logout({returnTo : window.location.origin})}>
-                    Log out
+                    {user.name}
                 </button>
             )}
             {!isAuthenticated && (
