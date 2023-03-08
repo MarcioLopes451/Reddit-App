@@ -1,5 +1,5 @@
 import React from "react";
-import { Subreddit } from "../../Containers/SubredditLinks/Subreddit";
+import { Subreddit } from "../Subreddit/Subreddit";
 
 export default function Home() {
     return (
