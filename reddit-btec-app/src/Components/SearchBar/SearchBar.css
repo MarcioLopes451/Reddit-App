@@ -125,21 +125,19 @@ cursor: pointer;
   cursor: pointer;
   height: 30px;
   background: #FFFFFF;
+  margin-top: 1rem;
 }
-.subreddit-btn1{
+.subreddit-btn1 {
   border: none;
   width: 100%;
   cursor: pointer;
-  margin-top:1rem;
   height: 30px;
   background: #FFFFFF;
+  margin-top: 1rem;
 }
-.subreddit-btn:hover, .subreddit-btn1:hover{
+
+.subreddit-btn:hover, .subreddit-btn1:hover {
   background: #e0e0e0;
-  transition: ease-in-out 500ms all;
-}
-.menu > li:hover {
-  background-color: #d3d3d3;
   transition: ease-in-out 500ms all;
 }
 

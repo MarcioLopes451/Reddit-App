@@ -1,6 +1,4 @@
 import { DropdownMenu } from "../../Containers/SubredditLinks/Subreddit";
-
-
 export const Subreddit = () => {
 
   return (

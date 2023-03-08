@@ -12,8 +12,13 @@ export function DropdownMenu(props){
             {open && (
                 <ul className="menu">
                 <li className="menu-item">
-                <button>{props.button}</button>
-                <button>{props.button1}</button>
+                <button className="subreddit-btn">
+                    <img src={props.img} alt={props.alt}></img>
+                    {props.button}
+                </button>
+                <button className="subreddit-btn1">
+                    {props.button1}
+                </button>
                 </li>
                 </ul>
             )}
