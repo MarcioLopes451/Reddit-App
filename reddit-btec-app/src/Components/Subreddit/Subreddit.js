@@ -1,8 +1,10 @@
 import { DropdownMenu } from "../../Containers/SubredditLinks/Subreddit";
+
 export const Subreddit = () => {
 
+
   return (
-    <div className="dropdown">
+    <div className='dropdown'>
         <h2 className="subreddit-title">Subreddit</h2>
         <DropdownMenu 
         title={'Popular Communities'}
